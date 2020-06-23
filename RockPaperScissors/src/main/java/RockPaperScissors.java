@@ -13,12 +13,25 @@ import java.util.Random;
 
 public class RockPaperScissors {
     public static void main(String[] args) {
+        // game flow
         boolean playAgain;
-        int roundsLeft, roundsTotal = 1;
-        int playerMove, computerMove;
-        int minRandom = 1, maxRandom = 3;
-        int ties = 0, userWins = 0, computerWins = 0;
-        boolean userIsWinner = false, tied = false;
+        int roundsLeft;
+        int roundsTotal = 1;
+        
+        // player moves
+        int playerMove;
+        
+        // computer moves
+        int computerMove;
+        int minRandom = 1;
+        int maxRandom = 3;
+        
+        // determine winner
+        int ties = 0; 
+        int userWins = 0; 
+        int computerWins = 0;
+        boolean userIsWinner = false;
+        boolean isTied = false;
         
         System.out.println("*******************************");
         System.out.println("Welcome to Rock Paper Scissors!");
@@ -89,7 +102,7 @@ public class RockPaperScissors {
                     userIsWinner = false;
                     System.out.println("Computer is winning!\n");
                 } else {
-                    tied = true;
+                    isTied = true;
                     System.out.println("You are tied!\n");
                 }  
                 roundsLeft--;
@@ -100,11 +113,11 @@ public class RockPaperScissors {
                 System.out.println("******************");
                 System.out.println("Congrats! You won!");
                 System.out.println("******************\n");
-            } else if (tied == true) {
+            } else if (isTied == true) {
                 System.out.println("***************************************");
                 System.out.println("The winner is... no one. You have tied.");
                 System.out.println("***************************************\n");
-            } else if (userIsWinner == false && tied == false) {
+            } else if (userIsWinner == false && isTied == false) {
                 System.out.println("*********************");
                 System.out.println("The computer has won.");
                 System.out.println("*********************\n");
