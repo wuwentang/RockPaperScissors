@@ -49,16 +49,19 @@ public class RockPaperScissors {
                     if (playerMove <1 || playerMove > 3) {
                         System.out.println("Please enter a valid move.");
                     }
-                } while (playerMove <1 || playerMove > 3);
+                } while (playerMove < 1 || playerMove > 3);
 
-                System.out.println(playerMove);
+                System.out.print("You have played ");
+                printMove(playerMove);
 
                 // computer generates its own move :)
                 Random rng = new Random();
                 computerMove = rng.nextInt(maxRandom - minRandom + 1) + minRandom;
-                System.out.println(computerMove);
+                
+                System.out.print("Computer has played ");
+                printMove(computerMove);
 
-                // compute winner
+                // check winner
                 int playerMoveMod = playerMove % 3;
                 int computerMoveMod = computerMove % 3;
 
@@ -113,6 +116,7 @@ public class RockPaperScissors {
             
             if (playMore.equals("y")) {
                 playAgain = true;
+                // resetting variables for next game
                 roundsLeft = 0;
                 roundsTotal = 1;
                 ties = 0;
@@ -124,5 +128,19 @@ public class RockPaperScissors {
             }
        
         } while (playAgain == true);
+    }
+    
+    public static void printMove(int move) {
+        switch(move){
+            case 1: 
+                System.out.println("ROCK!");
+                break;
+            case 2:
+                System.out.println("PAPER!");
+                break;
+            case 3:
+                System.out.println("SCISSORS!");
+        }
+                
     }
 }
