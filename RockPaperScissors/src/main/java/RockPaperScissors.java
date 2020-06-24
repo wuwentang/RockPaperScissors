@@ -77,8 +77,14 @@ public class RockPaperScissors {
                 // check winner
                 int playerMoveMod = playerMove % 3;
                 int computerMoveMod = computerMove % 3;
-
-                if (playerMoveMod > computerMoveMod) {
+                
+                if (playerMoveMod == 0 && computerMoveMod == 2){
+                    System.out.println("Player Wins this round!\n");
+                    userWins++;
+                } else if (playerMoveMod == 2 && computerMoveMod == 0) {
+                    System.out.println("Computer Wins this round!\n");
+                    computerWins++;
+                } else if (playerMoveMod > computerMoveMod) {
                     System.out.println("Player Wins this round!\n");
                     userWins++;
                 } else if (playerMoveMod < computerMoveMod) {
@@ -140,7 +146,7 @@ public class RockPaperScissors {
                 System.out.println("Thanks for playing!");
             }
        
-        } while (playAgain == true);
+        } while (playAgain);
     }
     
     public static void printMove(int move) {
